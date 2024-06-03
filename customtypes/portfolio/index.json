@@ -1,0 +1,66 @@
+{
+  "format": "page",
+  "id": "portfolio",
+  "label": "Portfolio",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Real Estate": {
+      "realestate_photos": {
+        "type": "Group",
+        "config": {
+          "label": "Photos",
+          "repeat": true,
+          "fields": {
+            "photo": {
+              "type": "Image",
+              "config": {
+                "label": "Photo",
+                "constraint": {},
+                "thumbnails": []
+              }
+            }
+          }
+        }
+      }
+    },
+    "Portrait & Personal": {
+      "portrait_photos": {
+        "type": "Group",
+        "config": {
+          "label": "Photos",
+          "repeat": true,
+          "fields": {
+            "photo": {
+              "type": "Image",
+              "config": {
+                "label": "Photo",
+                "constraint": {},
+                "thumbnails": []
+              }
+            }
+          }
+        }
+      }
+    },
+    "Arial Services": {
+      "arial_photos": {
+        "type": "Group",
+        "config": {
+          "label": "Photos",
+          "repeat": true,
+          "fields": {
+            "photo": {
+              "type": "Image",
+              "config": {
+                "label": "Photo",
+                "constraint": {},
+                "thumbnails": []
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

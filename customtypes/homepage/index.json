@@ -1,0 +1,85 @@
+{
+  "format": "page",
+  "id": "homepage",
+  "label": "Homepage",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "heading": {
+        "type": "Text",
+        "config": {
+          "label": "Heading",
+          "placeholder": ""
+        }
+      },
+      "summary": {
+        "type": "Text",
+        "config": {
+          "label": "Summary",
+          "placeholder": ""
+        }
+      },
+      "hero_slides": {
+        "type": "Group",
+        "config": {
+          "label": "Hero Slides",
+          "repeat": true,
+          "fields": {
+            "image": {
+              "type": "Image",
+              "config": {
+                "label": "Image",
+                "constraint": {},
+                "thumbnails": []
+              }
+            }
+          }
+        }
+      },
+      "slices": {
+        "type": "Slices",
+        "fieldset": "Slice Zone",
+        "config": {
+          "choices": {}
+        }
+      }
+    },
+    "Services": {
+      "services": {
+        "type": "Group",
+        "config": {
+          "label": "Services",
+          "repeat": true,
+          "fields": {
+            "title": {
+              "type": "Text",
+              "config": {
+                "label": "Title",
+                "placeholder": ""
+              }
+            },
+            "image": {
+              "type": "Image",
+              "config": {
+                "label": "Image",
+                "constraint": {},
+                "thumbnails": []
+              }
+            }
+          }
+        }
+      }
+    },
+    "Portfolio": {
+      "portfolio_bg": {
+        "type": "Image",
+        "config": {
+          "label": "Portfolio Background",
+          "constraint": {},
+          "thumbnails": []
+        }
+      }
+    }
+  }
+}

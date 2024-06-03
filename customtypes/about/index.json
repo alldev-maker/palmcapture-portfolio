@@ -1,0 +1,35 @@
+{
+  "format": "page",
+  "id": "about",
+  "label": "About",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "summary": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Summary",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "multi": "paragraph,strong"
+        }
+      },
+      "avatar": {
+        "type": "Image",
+        "config": {
+          "label": "Avatar",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
+      "slices": {
+        "type": "Slices",
+        "fieldset": "Slice Zone",
+        "config": {
+          "choices": {}
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,132 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
+@font-face {
+  font-family: "Voyage";
+  src: url("/fonts/Voyage-regular.otf");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Voyage";
+  src: url("/fonts/Voyage-bold.otf");
+  font-weight: bold;
+  font-style: normal;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @apply font-voyage;
+}
+
+.swiper-button-prev {
+  @apply h-12 w-12 cursor-pointer rounded-full bg-[#F0F0F0] text-black;
+}
+.swiper-button-prev::after {
+  @apply !text-xl font-bold;
+}
+.swiper-button-next {
+  @apply h-12 w-12 cursor-pointer rounded-full bg-[#F0F0F0] text-black;
+}
+.swiper-button-next::after {
+  @apply !text-xl font-bold;
+}
+
+.home-swiper .swiper-slide {
+  @apply h-[420px] w-full md:h-full md:max-h-[645px];
+}
+.home-swiper .swiper-button-prev {
+  @apply left-7;
+}
+.home-swiper .swiper-button-next {
+  @apply right-7;
+}
+
+@media (max-width: 768px) {
+  .home-swiper .swiper-button-prev,
+  .home-swiper .swiper-button-next {
+    display: none;
+  }
+
+  .image-gallery-thumbnail {
+    @apply h-16;
+  }
+  .image-gallery-slide {
+    @apply h-[299px];
+  }
+  .image-gallery-image {
+    @apply h-full !object-cover object-center;
+  }
+  .potrait-gallery .image-gallery-slide {
+    @apply h-[370px];
+  }
+}
+
+.image-gallery-thumbnails {
+  @apply pt-4;
+}
+.image-gallery-thumbnail-inner {
+  @apply h-full;
+}
+.image-gallery-thumbnail-image {
+  @apply h-full object-cover;
+}
+
+.arial-gallery .image-gallery-slides {
+  @apply max-h-[299px] md:max-h-[610px];
+}
+.arial-gallery .image-gallery-image {
+  @apply h-full object-cover;
+}
+.arial-gallery .image-gallery-thumbnails {
+  @apply pt-4;
+}
+.arial-gallery .image-gallery-thumbnail {
+  @apply md:h-[193px] md:w-[193px];
+}
+
+.image-gallery-thumbnail + .image-gallery-thumbnail {
+  @apply ml-1 md:ml-3;
+}
+
+.service-richtext p,
+.service-richtext ul {
+  @apply mb-5;
+}
+
+.service-richtext h1,
+h2,
+h3,
+h4,
+h5 {
+  @apply mb-2 text-lg font-bold text-pink-500;
+}
+
+.service-richtext ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.service-richtext li {
+  @apply font-bold text-brown-500;
+}
+
+.service-richtext li::before {
+  content: url('data:image/svg+xml;utf8,<svg width="16" height="13" viewBox="0 0 16 13" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M16 6.24421C16 5.91017 15.4489 4.83105 14.3175 4.83105C13.186 4.83105 11.4435 6.24421 11.4435 6.24421C11.4435 6.24421 13.186 7.65733 14.3175 7.65733C15.4489 7.65733 16 6.57825 16 6.24421Z" fill="%23B27950"/><path d="M3.86534 4.00195C1.26536 4.00195 0 5.71527 0 6.24481C0 6.77589 1.26536 8.48763 3.86534 8.48763C6.46531 8.48763 10.4723 6.24481 10.4723 6.24481C10.4723 6.24481 6.46531 4.00195 3.86534 4.00195Z" fill="%23B27950"/><path d="M5.18768 0.130206C5.01681 0.301075 4.87365 1.25856 5.70798 2.09443C6.54385 2.9303 8.55425 3.4968 8.55425 3.4968C8.55425 3.4968 7.98623 1.48794 7.15036 0.65207C6.31449 -0.183802 5.35701 -0.0391235 5.18768 0.130206Z" fill="%23B27950"/><path d="M5.18774 12.3588C5.35707 12.5297 6.31609 12.6728 7.15043 11.8369C7.9863 11.001 8.55432 8.99219 8.55432 8.99219C8.55432 8.99219 6.54392 9.55869 5.70805 10.3946C4.87218 11.2304 5.01534 12.1879 5.18774 12.3588Z" fill="%23B27950"/></svg>');
+  display: inline-block;
+  width: 16px;
+  height: 13px;
+  margin-right: 10px;
+}
+
+.service-richtext > :last-child {
+  @apply mb-0;
+}
