@@ -1,14 +1,34 @@
+import { useState, useRef, useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, FreeMode } from "swiper/modules";
+import CalendlyEmbed from "../shared/CalendlyEmbed";
 
 const HomeHero = ({ heading, summary, slides }) => {
+  const calendlyRef = useRef();
+  const [isShown, setIsShown] = useState(false);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (calendlyRef.current && !calendlyRef.current.contains(event.target)) {
+        setIsShown(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
   return (
     <section className="relative">
       <div className="absolute left-1/2 top-1/2 z-10 w-full max-w-3xl -translate-x-1/2 -translate-y-1/2 px-4 text-left md:text-center">
         <h1 className="text-5xl font-bold text-white text-shadow-heading md:text-[80px] md:font-normal">
           {heading || "Palm Capture"}
         </h1>
-        <button className="mt-5 rounded-md bg-light-brown-500 p-2.5 text-center font-voyage text-lg font-bold text-white lg:text-2xl">
+        <button
+          onClick={() => setIsShown(true)}
+          className="mt-5 rounded-md bg-light-brown-500 p-2.5 text-center font-voyage text-lg font-bold text-white lg:text-2xl"
+        >
           Book a session
         </button>
       </div>
@@ -38,6 +58,11 @@ const HomeHero = ({ heading, summary, slides }) => {
           <img className="mx-auto" src="/symbol.svg" alt="symbol" />
         </div>
       </div>
+      {isShown && (
+        <div ref={calendlyRef}>
+          <CalendlyEmbed onClose={() => setIsShown(false)} />
+        </div>
+      )}
     </section>
   );
 };

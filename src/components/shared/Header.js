@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
+import CalendlyEmbed from "./CalendlyEmbed";
 
 const NavItem = ({ href, children }) => {
   const router = useRouter();
@@ -16,10 +17,24 @@ const NavItem = ({ href, children }) => {
 };
 
 export const Header = () => {
+  const calendlyRef = useRef();
+  const [isShown, setIsShown] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
 
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (calendlyRef.current && !calendlyRef.current.contains(event.target)) {
+        setIsShown(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
   return (
-    <header className="">
+    <header>
       <nav className="container relative flex flex-col items-center justify-between py-2 sm:flex-row md:py-4">
         <ul className="hidden items-center justify-center gap-4 sm:flex lg:gap-6">
           <li className="flex items-center gap-2.5">
@@ -51,7 +66,10 @@ export const Header = () => {
           <NavItem href="/about">About</NavItem>
           <NavItem href="/portfolio">Portfolio</NavItem>
           <li className="shrink-0">
-            <button className="rounded-md bg-brown-500 p-2.5 text-center font-voyage text-lg font-bold text-white lg:text-2xl">
+            <button
+              onClick={() => setIsShown(true)}
+              className="rounded-md bg-brown-500 p-2.5 text-center font-voyage text-lg font-bold text-white lg:text-2xl"
+            >
               Book a session
             </button>
           </li>
@@ -64,12 +82,23 @@ export const Header = () => {
           <NavItem href="/about">About</NavItem>
           <NavItem href="/portfolio">Portfolio</NavItem>
           <li>
-            <button className="rounded-md bg-brown-500 p-2.5 text-center font-voyage text-lg font-bold text-white lg:text-2xl">
+            <button
+              onClick={() => {
+                setIsShown(true);
+                setIsOpen(false);
+              }}
+              className="rounded-md bg-brown-500 p-2.5 text-center font-voyage text-lg font-bold text-white lg:text-2xl"
+            >
               Book a session
             </button>
           </li>
         </ul>
       </nav>
+      {isShown && (
+        <div ref={calendlyRef}>
+          <CalendlyEmbed onClose={() => setIsShown(false)} />
+        </div>
+      )}
     </header>
   );
 };
