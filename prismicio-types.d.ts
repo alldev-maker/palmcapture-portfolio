@@ -56,6 +56,71 @@ interface AboutDocumentData {
 export type AboutDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithoutUID<Simplify<AboutDocumentData>, "about", Lang>;
 
+type GlobalDocumentDataSlicesSlice = never;
+
+/**
+ * Content for Global documents
+ */
+interface GlobalDocumentData {
+  /**
+   * Contact Us Picture field in *Global*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: global.contact_bg
+   * - **Tab**: Contact Us Today Section
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  contact_bg: prismic.ImageField<never>;
+
+  /**
+   * Content field in *Global*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: global.content
+   * - **Tab**: Contact Us Today Section
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  content: prismic.KeyTextField;
+
+  /**
+   * Slice Zone field in *Global*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: global.slices[]
+   * - **Tab**: Contact Us Today Section
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<GlobalDocumentDataSlicesSlice> /**
+   * Offer Image field in *Global*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: global.offer_image
+   * - **Tab**: What We Offer
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */;
+  offer_image: prismic.ImageField<never>;
+}
+
+/**
+ * Global document from Prismic
+ *
+ * - **API ID**: `global`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type GlobalDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<GlobalDocumentData>,
+    "global",
+    Lang
+  >;
+
 /**
  * Item in *Homepage → Hero Slides*
  */
@@ -258,7 +323,7 @@ interface PortfolioDocumentData {
    * - **Field Type**: Group
    * - **Placeholder**: *None*
    * - **API ID Path**: portfolio.arial_photos[]
-   * - **Tab**: Arial Services
+   * - **Tab**: Aerial Services
    * - **Documentation**: https://prismic.io/docs/field#group
    */;
   arial_photos: prismic.GroupField<
@@ -396,6 +461,7 @@ export type ServicesDocument<Lang extends string = string> =
 
 export type AllDocumentTypes =
   | AboutDocument
+  | GlobalDocument
   | HomepageDocument
   | PortfolioDocument
   | ServicesDocument;
@@ -413,6 +479,9 @@ declare module "@prismicio/client" {
       AboutDocument,
       AboutDocumentData,
       AboutDocumentDataSlicesSlice,
+      GlobalDocument,
+      GlobalDocumentData,
+      GlobalDocumentDataSlicesSlice,
       HomepageDocument,
       HomepageDocumentData,
       HomepageDocumentDataHeroSlidesItem,

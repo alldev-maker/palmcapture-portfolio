@@ -35,7 +35,6 @@ module.exports = {
         "home-portfolio": "rgba(6, 10, 10, 0.8)",
       },
       backgroundImage: {
-        "contact-us": "url('/contact-bg.png')",
         "home-port": "url('/home-portfolio-bg.png')",
         portfolio: "url('/bg-portfolio.png')",
         service: "url('/bg-service.png')",

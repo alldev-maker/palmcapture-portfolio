@@ -9,7 +9,7 @@ const ArialServices = ({ photos }) => {
   return (
     <section id="real_estate" className="container py-10">
       <h2 className="mb-6 text-center text-5xl font-bold text-brown-900 md:mb-8 md:text-6xl">
-        Arial Services
+        Aerial Services
       </h2>
 
       <ImageGallery

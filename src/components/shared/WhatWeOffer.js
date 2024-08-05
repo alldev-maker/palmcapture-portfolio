@@ -1,38 +1,4 @@
-export function WhatWeOffer() {
-  const offers = [
-    {
-      bgColor: "pink-50",
-      textColor: "pink-600",
-      icon: "/red-offer-icon.svg",
-      title: "Zero Obligation consult",
-      description:
-        "Embark on this journey with confidence. We understand your vision, needs, and preferences before committing to anything. Let’s chat, brainstorm, and explore possibilities together..",
-    },
-    {
-      bgColor: "light-brown-50",
-      textColor: "light-brown-600",
-      icon: "/brown-offer-icon.svg",
-      title: "72 hour previews",
-      description:
-        "The anticipation ends here. We understand the excitement of reliving memories, say goodbye to waiting weeks for a glimpse of your captured moments. With Palm Capture, expect previews within just 5 days",
-    },
-    {
-      bgColor: "green-50",
-      textColor: "green-600",
-      icon: "/green-offer-icon.svg",
-      title: "Access your pics online",
-      description:
-        "Convenience at your fingertips! Access your personalized online gallery to easy download your files, anywhere.",
-    },
-    {
-      bgColor: "pink-50",
-      textColor: "pink-600",
-      icon: "/red-offer-icon.svg",
-      title: "Quality over quantity",
-      description:
-        "We believe in the power of quality over quantity. We prioritize meaningful moments over mindless clicks, ensuring that every image resonates with authenticity and emotion.",
-    },
-  ];
+export function WhatWeOffer({ offerBg }) {
   return (
     <section className="container py-8 sm:py-10">
       <h2 className="mb-6 text-center text-5xl text-brown-900 sm:mb-8 md:text-6xl">
@@ -40,7 +6,7 @@ export function WhatWeOffer() {
       </h2>
       <div className="flex flex-col items-center gap-4 lg:flex-row lg:items-start lg:gap-9">
         <img
-          src="we-offer.png"
+          src={offerBg}
           alt="we offer"
           className="w-full max-w-[545px] rounded-lg object-cover lg:w-1/2"
         />

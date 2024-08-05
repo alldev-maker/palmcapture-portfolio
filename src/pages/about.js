@@ -4,10 +4,12 @@ import { PrismicRichText } from "@prismicio/react";
 import { Layout } from "@/components/shared/Layout";
 import ContactForm from "@/components/shared/ContactFrom";
 
-export default function About({ page }) {
+export default function About({ page, global }) {
   const { data } = page;
+  const { data: globalData } = global;
+
   return (
-    <Layout>
+    <Layout globalData={globalData}>
       <section className="relative pb-10 pt-6 md:pb-32 md:pt-10">
         <h1 className="text-center text-6xl text-brown-900 md:text-[80px]">
           About Me
@@ -39,8 +41,9 @@ export async function getStaticProps({ previewData }) {
   const client = createClient({ previewData });
 
   const page = await client.getSingle("about");
+  const global = await client.getSingle("global");
 
   return {
-    props: { page },
+    props: { page, global },
   };
 }

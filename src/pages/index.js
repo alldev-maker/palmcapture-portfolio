@@ -4,10 +4,12 @@ import PortfolioSection from "@/components/Home/PortfolioSection";
 import ServicesSection from "@/components/Home/ServicesSection";
 import HomeHero from "@/components/Home/Hero";
 
-export default function Index({ page }) {
+export default function Index({ page, global }) {
   const { data } = page;
+  const { data: globalData } = global;
+
   return (
-    <Layout>
+    <Layout globalData={globalData}>
       <HomeHero
         heading={data.heading}
         summary={data.summary}
@@ -23,8 +25,9 @@ export async function getStaticProps({ previewData }) {
   const client = createClient({ previewData });
 
   const page = await client.getSingle("homepage");
+  const global = await client.getSingle("global");
 
   return {
-    props: { page },
+    props: { page, global },
   };
 }

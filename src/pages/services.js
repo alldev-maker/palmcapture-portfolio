@@ -3,11 +3,12 @@ import { PrismicRichText } from "@prismicio/react";
 
 import { Layout } from "@/components/shared/Layout";
 
-export default function Services({ page }) {
+export default function Services({ page, global }) {
   const { data } = page;
+  const { data: globalData } = global;
 
   return (
-    <Layout>
+    <Layout globalData={globalData}>
       <section className="bg-service bg-cover bg-center bg-no-repeat px-4 py-16 md:py-24">
         <div className="mx-auto max-w-[613px]">
           <h1 className="mb-4 text-5xl font-bold text-white text-shadow-heading md:mb-6 md:text-center md:text-[80px] md:font-normal">
@@ -51,8 +52,9 @@ export async function getStaticProps({ previewData }) {
   const client = createClient({ previewData });
 
   const page = await client.getSingle("services");
+  const global = await client.getSingle("global");
 
   return {
-    props: { page },
+    props: { page, global },
   };
 }

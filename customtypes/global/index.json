@@ -1,0 +1,43 @@
+{
+  "format": "page",
+  "id": "global",
+  "label": "Global",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Contact Us Today Section": {
+      "contact_bg": {
+        "type": "Image",
+        "config": {
+          "label": "Contact Us Picture",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
+      "content": {
+        "type": "Text",
+        "config": {
+          "label": "Content",
+          "placeholder": ""
+        }
+      },
+      "slices": {
+        "type": "Slices",
+        "fieldset": "Slice Zone",
+        "config": {
+          "choices": {}
+        }
+      }
+    },
+    "What We Offer": {
+      "offer_image": {
+        "type": "Image",
+        "config": {
+          "label": "Offer Image",
+          "constraint": {},
+          "thumbnails": []
+        }
+      }
+    }
+  }
+}

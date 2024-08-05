@@ -1,4 +1,5 @@
 {
   "repositoryName": "palmcapture",
-  "adapter": "@slicemachine/adapter-next"
+  "adapter": "@slicemachine/adapter-next",
+  "libraries": ["/slices"]
 }
